@@ -1,0 +1,32 @@
+name: test-tardis
+version: 0.1
+
+ghc-options:
+  - -Wall
+  - -Werror
+
+dependencies:
+  - base
+  - hashable
+  - tardis
+  - unordered-containers
+
+library:
+  source-dirs: src/
+
+tests:
+  test-test-tardis:
+    main: Test.hs
+    dependencies:
+      - QuickCheck
+      - tasty
+      - tasty-quickcheck
+      - test-tardis
+
+benchmarks:
+  bench-test-tardis:
+    main: Bench.hs
+    dependencies:
+      - criterion
+      - QuickCheck
+      - test-tardis
